@@ -37,7 +37,7 @@
             <th>Id</th>
             <th>Name</th>
             <th>Status</th>
-            <th>Actions</th>
+            <th>&nbsp;</th>
         </tr>
         </thead>
         <tbody>
@@ -52,6 +52,7 @@
                             hx-put="{{ route('complete', ['id' => $item->id, 'status' => $status]) }}"
                             hx-target="#todo-list-table"
                             hx-swap="outerHTML"
+                            class="btn btn-outline-primary"
                         >
                             Complete
                         </button>
@@ -65,6 +66,6 @@
     <form hx-target="#todo-list-table" hx-post="{{ route('add') }}">
         <label for="new-todo-name">Add a new todo item: </label>
         <input id="new-todo-name" type="text" name="name" placeholder="New todo"/>
-        <button>Add</button>
+        <button class="btn btn-outline-primary">Add</button>
     </form>
 </div>
