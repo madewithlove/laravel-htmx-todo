@@ -20,7 +20,7 @@ class TodoList extends Component
     public function render()
     {
         $this->items = match($this->status) {
-            'all' => TodoItem::all(),
+            'all' => TodoItem::query()->orderBy('status', 'desc')->get(),
             'open' => TodoItem::where('status', 'open')->get(),
             'done' => TodoItem::where('status', 'done')->get(),
             default => throw new \Exception(),
