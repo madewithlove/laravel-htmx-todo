@@ -5,6 +5,7 @@
                 hx-get="{{ route('list', ['status' => 'all']) }}"
                 hx-trigger="click"
                 hx-target="#todo-list-table"
+                hx-swap="outerHTML"
                 class="nav-item"
             >
                 <a class="nav-link {{ $status === 'all' ? 'active' : '' }}" href="#">
@@ -15,6 +16,7 @@
                 hx-get="{{ route('list', ['status' => 'open']) }}"
                 hx-trigger="click"
                 hx-target="#todo-list-table"
+                hx-swap="outerHTML"
                 class="nav-item">
                 <a class="nav-link {{ $status === 'open' ? 'active' : '' }}" href="#">
                     Open
@@ -24,6 +26,7 @@
                 hx-get="{{ route('list', ['status' => 'done']) }}"
                 hx-trigger="click"
                 hx-target="#todo-list-table"
+                hx-swap="outerHTML"
                 class="nav-item">
                 <a class="nav-link {{ $status === 'done' ? 'active' : '' }}" href="#">
                     Done
@@ -63,7 +66,7 @@
         </tbody>
     </table>
 
-    <form hx-target="#todo-list-table" hx-post="{{ route('add') }}">
+    <form hx-target="#todo-list-table" hx-post="{{ route('add') }}" hx-swap="outerHTML">
         <label for="new-todo-name">Add a new todo item: </label>
         <input id="new-todo-name" type="text" name="name" placeholder="New todo"/>
         <button class="btn btn-outline-primary">Add</button>
